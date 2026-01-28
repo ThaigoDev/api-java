@@ -1,0 +1,11 @@
+services:
+  mysql:
+    image: mysql:latest
+    container_name: mysql_api_java
+    environment:
+      MYSQL_DATABASE: mydatabase
+      MYSQL_USER: thai
+      MYSQL_PASSWORD: SENHA
+      MYSQL_ROOT_PASSWORD: SENHA2
+    ports:
+      - "3306:3306"
