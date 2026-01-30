@@ -1,4 +1,4 @@
-package tech.thai.api.java.DTOS;
+package tech.thai.api.java.dtos;
 
 public record CreateUserDto(String username, String email, String password) {
 

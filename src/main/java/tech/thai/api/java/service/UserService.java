@@ -1,8 +1,8 @@
 package tech.thai.api.java.service;
 
 import org.springframework.stereotype.Service;
-import tech.thai.api.java.DTOS.CreateUserDto;
-import tech.thai.api.java.DTOS.UpdateUserDTO;
+import tech.thai.api.java.dtos.CreateUserDto;
+import tech.thai.api.java.dtos.UpdateUserDTO;
 import tech.thai.api.java.entity.User;
 import tech.thai.api.java.respository.UserRepository;
 
@@ -44,7 +44,20 @@ public class UserService {
             userRepository.deleteById(id);
         }
     }
-    public UpdateUserDTO updateUserById(String userId ) {
+    public void updateUserById(String userId, UpdateUserDTO updateUserDTO ) {
+        var id = UUID.fromString(userId);
+         var userEntity= userRepository.findById(id);
+         if(userEntity.isPresent()) {
+             var user = userEntity.get();
+             if(updateUserDTO.username()!= null) {
+                 user.setUsername(updateUserDTO.username());
+             }
+             if(updateUserDTO.password()!= null) {
+                 user.setPassword(updateUserDTO.password());
+             }
+             userRepository.save(user);
+         }
+
 
     }
 }

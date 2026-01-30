@@ -1,9 +1,9 @@
 package tech.thai.api.java.controller;
 
-import org.apache.coyote.Response;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-import tech.thai.api.java.DTOS.CreateUserDto;
+import tech.thai.api.java.dtos.CreateUserDto;
+import tech.thai.api.java.dtos.UpdateUserDTO;
 import tech.thai.api.java.entity.User;
 import tech.thai.api.java.service.UserService;
 
@@ -42,7 +42,8 @@ public class UserController {
         return ResponseEntity.noContent().build();
     }
     @PutMapping("/{userId}")
-    public ResponseEntity<User> updateUserById(@PathVariable("userId") String userId) {
-        var userUpdated = userService.updateUserById(userId);
+    public ResponseEntity<Void> updateUserById(@PathVariable("userId") String userId, @RequestBody UpdateUserDTO updateUserDTO) {
+           userService.updateUserById(userId, updateUserDTO);
+           return ResponseEntity.noContent().build();
     }
 }
