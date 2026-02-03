@@ -5,7 +5,7 @@ import tech.thai.api.java.entity.Stock;
 
 import java.util.UUID;
 
-public interface StockRepository  extends JpaRepository<Stock, String> {
+public interface StockRepository  extends JpaRepository<Stock, UUID> {
 
 
 }

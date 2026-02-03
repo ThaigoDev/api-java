@@ -9,28 +9,25 @@ import java.util.UUID;
 public class Stock {
     @Id
     @Column(name = "stock_id")
-    private UUID stock_id;
+    private String stock_id;
 
     @Column(name = "description")
     private String description;
 
-    @Column(name= "ticker")
-    private String ticker;
 
     public Stock() {
     }
 
-    public Stock(UUID stock_id, String description, String ticker) {
+    public Stock(String stock_id, String description) {
         this.stock_id = stock_id;
         this.description = description;
-        this.ticker = ticker;
     }
 
-    public UUID getStock_id() {
+    public String getStock_id() {
         return stock_id;
     }
 
-    public void setStock_id(UUID stock_id) {
+    public void setStock_id(String stock_id) {
         this.stock_id = stock_id;
     }
 
@@ -42,11 +39,5 @@ public class Stock {
         this.description = description;
     }
 
-    public String getTicker() {
-        return ticker;
-    }
 
-    public void setTicker(String ticker) {
-        this.ticker = ticker;
-    }
 }
